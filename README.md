@@ -4,7 +4,7 @@
 
 ## Installation
 
-To install `itt` execute the following:
+To install **ITT** execute the following:
 
 ```bash
 pip install git+https://github.com/arenas-guerrero-julian/itt.git
