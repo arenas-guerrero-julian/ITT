@@ -1,0 +1,76 @@
+SELECT DISTINCT ('http://www.department' || CAST(v15."nr7m6" AS TEXT) || '.university' || CAST(v15."suborganizationof8m6" AS TEXT) || '.edu/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v15."name9m6", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D')) AS "v0",
+                ('http://www.department' || CAST(v15."nr7m6" AS TEXT) || '.university' || CAST(v15."suborganizationof8m6" AS TEXT) || '.edu') AS "v3"
+FROM (
+        (SELECT v1."name" AS "name9m6",
+                v1."memberof" AS "nr7m6",
+                v2."suborganizationof" AS "suborganizationof8m6"
+         FROM "undergraduatestudent" v1,
+              "department" v2
+         WHERE (v2."suborganizationof" IS NOT NULL
+                AND v1."name" IS NOT NULL
+                AND ('http://www.department' || CAST(v1."memberof" AS TEXT) || '.university' || CAST(v2."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v1."memberof" = v2."nr"))
+      UNION ALL
+        (SELECT v4."name" AS "name9m6",
+                v4."memberof" AS "nr7m6",
+                v5."suborganizationof" AS "suborganizationof8m6"
+         FROM "graduatestudent" v4,
+              "department" v5
+         WHERE (v5."suborganizationof" IS NOT NULL
+                AND v4."name" IS NOT NULL
+                AND ('http://www.department' || CAST(v4."memberof" AS TEXT) || '.university' || CAST(v5."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v4."memberof" = v5."nr"))
+      UNION ALL
+        (SELECT v8."name" AS "name9m6",
+                v8."worksfor" AS "nr7m6",
+                v9."suborganizationof" AS "suborganizationof8m6"
+         FROM "lecturer" v7,
+              "faculty" v8,
+              "department" v9
+         WHERE (v9."suborganizationof" IS NOT NULL
+                AND v8."name" IS NOT NULL
+                AND ('http://www.department' || CAST(v8."worksfor" AS TEXT) || '.university' || CAST(v9."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v7."nr" = v8."nr"
+                AND v8."worksfor" = v9."nr"))
+      UNION ALL
+        (SELECT v12."name" AS "name9m6",
+                v12."worksfor" AS "nr7m6",
+                v13."suborganizationof" AS "suborganizationof8m6"
+         FROM "professor" v11,
+              "faculty" v12,
+              "department" v13
+         WHERE (((v13."suborganizationof" IS NOT NULL
+                  AND v12."name" IS NOT NULL
+                  AND 'fullProfessor' = v11."professortype")
+                 OR (v13."suborganizationof" IS NOT NULL
+                     AND v12."name" IS NOT NULL
+                     AND 'associateProfessor' = v11."professortype")
+                 OR (v13."suborganizationof" IS NOT NULL
+                     AND v12."name" IS NOT NULL
+                     AND 'assistantProfessor' = v11."professortype"))
+                AND ('http://www.department' || CAST(v12."worksfor" AS TEXT) || '.university' || CAST(v13."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v11."nr" = v12."nr"
+                AND v12."worksfor" = v13."nr"))) v15,
+     (
+        (SELECT v16."name" AS "name9m0",
+                v16."memberof" AS "nr7m1",
+                v17."suborganizationof" AS "suborganizationof8m2"
+         FROM "undergraduatestudent" v16,
+              "department" v17
+         WHERE (v17."suborganizationof" IS NOT NULL
+                AND v16."name" IS NOT NULL
+                AND ('http://www.department' || CAST(v16."memberof" AS TEXT) || '.university' || CAST(v17."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v16."memberof" = v17."nr"))
+      UNION ALL
+        (SELECT v19."name" AS "name9m0",
+                v19."memberof" AS "nr7m1",
+                v20."suborganizationof" AS "suborganizationof8m2"
+         FROM "graduatestudent" v19,
+              "department" v20
+         WHERE (v20."suborganizationof" IS NOT NULL
+                AND v19."name" IS NOT NULL
+                AND ('http://www.department' || CAST(v19."memberof" AS TEXT) || '.university' || CAST(v20."suborganizationof" AS TEXT) || '.edu') = 'http://www.department0.university0.edu'
+                AND v19."memberof" = v20."nr"))) v22
+WHERE (v15."name9m6" = v22."name9m0"
+       AND v15."nr7m6" = v22."nr7m1"
+       AND v15."suborganizationof8m6" = v22."suborganizationof8m2")

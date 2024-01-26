@@ -1,0 +1,21 @@
+SELECT longName AS longName, count(v75972.name) AS count
+FROM  ( ( ( ( ( ( ( ( ( ( ( SELECT s AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#wheelchairAccessible>' AND o='<http://transport.linkeddata.es/resource/WheelchairBoardingStatus/1>' ) AS v902709
+INNER JOIN
+( SELECT s AS stop, o AS name FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/name>' ) AS v75972 ON v902709.stop=v75972.stop ) AS v75972
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v925472 ON v75972.stop=v925472.stop ) AS v925472
+INNER JOIN
+( SELECT s AS stopTime, o AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#stop>' ) AS v893441 ON v925472.stop=v893441.stop ) AS v893441
+INNER JOIN
+( SELECT s AS stopTime, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v509260 ON v893441.stopTime=v509260.stopTime ) AS v509260
+INNER JOIN
+( SELECT s AS stopTime FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#StopTime>' ) AS v52248 ON v509260.stopTime=v52248.stopTime ) AS v52248
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v276883 ON v509260.trip=v276883.trip ) AS v276883
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v805784 ON v276883.trip=v805784.trip ) AS v805784
+INNER JOIN
+( SELECT s AS route, o AS longName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#longName>' ) AS v16216 ON v276883.route=v16216.route ) AS v16216
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v171030 ON v16216.route=v171030.route ) ) GROUP BY longName
+

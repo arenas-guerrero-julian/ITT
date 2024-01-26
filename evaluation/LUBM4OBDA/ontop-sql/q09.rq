@@ -1,0 +1,170 @@
+SELECT DISTINCT ('http://www.department' || CAST(v7."nr0m4" AS TEXT) || '.university' || CAST(v7."suborganizationof1m4" AS TEXT) || '.edu/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v7."name2m4", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D')) AS "v0",
+                ('http://www.department' || CAST(v7."nr0m4" AS TEXT) || '.university' || CAST(v7."suborganizationof1m4" AS TEXT) || '.edu/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v16."name8m9", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D')) AS "v3",
+                ('http://www.department' || CAST(v7."nr0m4" AS TEXT) || '.university' || CAST(v7."suborganizationof1m4" AS TEXT) || '.edu/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v27."name9m1", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D')) AS "v5"
+FROM (
+        (SELECT v1."name" AS "name2m4",
+                v1."memberof" AS "nr0m4",
+                v2."suborganizationof" AS "suborganizationof1m4"
+         FROM "undergraduatestudent" v1,
+              "department" v2
+         WHERE (v2."suborganizationof" IS NOT NULL
+                AND v1."name" IS NOT NULL
+                AND v1."memberof" = v2."nr"))
+      UNION ALL
+        (SELECT v4."name" AS "name2m4",
+                v4."memberof" AS "nr0m4",
+                v5."suborganizationof" AS "suborganizationof1m4"
+         FROM "graduatestudent" v4,
+              "department" v5
+         WHERE (v5."suborganizationof" IS NOT NULL
+                AND v4."name" IS NOT NULL
+                AND v4."memberof" = v5."nr"))) v7,
+     (
+        (SELECT v8."name" AS "name2m0",
+                v10."name" AS "name8m9",
+                v8."memberof" AS "nr0m1",
+                v9."suborganizationof" AS "suborganizationof1m2"
+         FROM "undergraduatestudent" v8,
+              "department" v9,
+              "faculty" v10
+         WHERE (v9."suborganizationof" IS NOT NULL
+                AND v8."name" IS NOT NULL
+                AND v10."name" IS NOT NULL
+                AND v8."memberof" = v9."nr"
+                AND v8."advisor" = v10."nr"))
+      UNION ALL
+        (SELECT v12."name" AS "name2m0",
+                v14."name" AS "name8m9",
+                v12."memberof" AS "nr0m1",
+                v13."suborganizationof" AS "suborganizationof1m2"
+         FROM "graduatestudent" v12,
+              "department" v13,
+              "faculty" v14
+         WHERE (v13."suborganizationof" IS NOT NULL
+                AND v12."name" IS NOT NULL
+                AND v14."name" IS NOT NULL
+                AND v12."memberof" = v13."nr"
+                AND v12."advisor" = v14."nr"))) v16,
+     (
+        (SELECT v18."name" AS "name2m3",
+                v20."name" AS "name9m1",
+                v18."memberof" AS "nr0m5",
+                v19."suborganizationof" AS "suborganizationof1m6"
+         FROM "graduatestudenttakecourse" v17,
+              "graduatestudent" v18,
+              "department" v19,
+              "graduatecourse" v20
+         WHERE (v19."suborganizationof" IS NOT NULL
+                AND v18."name" IS NOT NULL
+                AND v20."name" IS NOT NULL
+                AND v17."graduatestudentid" = v18."nr"
+                AND v18."memberof" = v19."nr"
+                AND v17."graduatecourseid" = v20."nr"))
+      UNION ALL
+        (SELECT v23."name" AS "name2m3",
+                v25."name" AS "name9m1",
+                v23."memberof" AS "nr0m5",
+                v24."suborganizationof" AS "suborganizationof1m6"
+         FROM "undergraduatestudenttakecourse" v22,
+              "undergraduatestudent" v23,
+              "department" v24,
+              "undergraduatecourse" v25
+         WHERE (v24."suborganizationof" IS NOT NULL
+                AND v23."name" IS NOT NULL
+                AND v25."name" IS NOT NULL
+                AND v22."undergraduatestudentid" = v23."nr"
+                AND v23."memberof" = v24."nr"
+                AND v22."undergraduatecourseid" = v25."nr"))) v27,
+     (
+        (SELECT v29."name" AS "name8m10",
+                v29."worksfor" AS "nr0m7",
+                v30."suborganizationof" AS "suborganizationof1m8"
+         FROM "lecturer" v28,
+              "faculty" v29,
+              "department" v30
+         WHERE (v30."suborganizationof" IS NOT NULL
+                AND v29."name" IS NOT NULL
+                AND v28."nr" = v29."nr"
+                AND v29."worksfor" = v30."nr"))
+      UNION ALL
+        (SELECT v33."name" AS "name8m10",
+                v33."worksfor" AS "nr0m7",
+                v34."suborganizationof" AS "suborganizationof1m8"
+         FROM "professor" v32,
+              "faculty" v33,
+              "department" v34
+         WHERE (((v34."suborganizationof" IS NOT NULL
+                  AND v33."name" IS NOT NULL
+                  AND 'fullProfessor' = v32."professortype")
+                 OR (v34."suborganizationof" IS NOT NULL
+                     AND v33."name" IS NOT NULL
+                     AND 'associateProfessor' = v32."professortype")
+                 OR (v34."suborganizationof" IS NOT NULL
+                     AND v33."name" IS NOT NULL
+                     AND 'assistantProfessor' = v32."professortype"))
+                AND v32."nr" = v33."nr"
+                AND v33."worksfor" = v34."nr"))) v36,
+     (
+        (SELECT v37."name" AS "name8m11",
+                v39."name" AS "name9m14",
+                v37."worksfor" AS "nr0m12",
+                v38."suborganizationof" AS "suborganizationof1m13"
+         FROM "faculty" v37,
+              "department" v38,
+              "graduatecourse" v39
+         WHERE (v38."suborganizationof" IS NOT NULL
+                AND v37."name" IS NOT NULL
+                AND v39."name" IS NOT NULL
+                AND v37."worksfor" = v38."nr"
+                AND v37."nr" = v39."teacher"))
+      UNION ALL
+        (SELECT v41."name" AS "name8m11",
+                v43."name" AS "name9m14",
+                v41."worksfor" AS "nr0m12",
+                v42."suborganizationof" AS "suborganizationof1m13"
+         FROM "faculty" v41,
+              "department" v42,
+              "undergraduatecourse" v43
+         WHERE (v42."suborganizationof" IS NOT NULL
+                AND v41."name" IS NOT NULL
+                AND v43."name" IS NOT NULL
+                AND v41."worksfor" = v42."nr"
+                AND v41."nr" = v43."teacher"))) v45,
+     (
+        (SELECT v46."name" AS "name9m17",
+                v47."worksfor" AS "nr0m15",
+                v48."suborganizationof" AS "suborganizationof1m16"
+         FROM "undergraduatecourse" v46,
+              "faculty" v47,
+              "department" v48
+         WHERE (v48."suborganizationof" IS NOT NULL
+                AND v46."name" IS NOT NULL
+                AND v46."teacher" = v47."nr"
+                AND v47."worksfor" = v48."nr"))
+      UNION ALL
+        (SELECT v50."name" AS "name9m17",
+                v51."worksfor" AS "nr0m15",
+                v52."suborganizationof" AS "suborganizationof1m16"
+         FROM "graduatecourse" v50,
+              "faculty" v51,
+              "department" v52
+         WHERE (v52."suborganizationof" IS NOT NULL
+                AND v50."name" IS NOT NULL
+                AND v50."teacher" = v51."nr"
+                AND v51."worksfor" = v52."nr"))) v54
+WHERE (v7."name2m4" = v16."name2m0"
+       AND v7."nr0m4" = v16."nr0m1"
+       AND v7."suborganizationof1m4" = v16."suborganizationof1m2"
+       AND v7."name2m4" = v27."name2m3"
+       AND v7."nr0m4" = v27."nr0m5"
+       AND v7."suborganizationof1m4" = v27."suborganizationof1m6"
+       AND v7."nr0m4" = v36."nr0m7"
+       AND v7."suborganizationof1m4" = v36."suborganizationof1m8"
+       AND v16."name8m9" = v36."name8m10"
+       AND v16."name8m9" = v45."name8m11"
+       AND v7."nr0m4" = v45."nr0m12"
+       AND v7."suborganizationof1m4" = v45."suborganizationof1m13"
+       AND v27."name9m1" = v45."name9m14"
+       AND v7."nr0m4" = v54."nr0m15"
+       AND v7."suborganizationof1m4" = v54."suborganizationof1m16"
+       AND v27."name9m1" = v54."name9m17")

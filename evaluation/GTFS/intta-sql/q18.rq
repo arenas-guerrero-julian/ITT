@@ -1,0 +1,15 @@
+SELECT v139582.service AS service, v213338.serviceRule AS serviceRule, v332012.trip AS trip, v973081.route AS route, v869292.longName AS longName, v869292.shortName AS shortName
+FROM  ( ( ( ( ( ( ( ( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v973081
+INNER JOIN
+( SELECT s AS trip, o AS service FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#service>' ) AS v332012 ON v973081.trip=v332012.trip ) AS v332012
+INNER JOIN
+( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#sunday>' AND o='"1"^^<http://www.w3.org/2001/XMLSchema#boolean>' ) AS v275685 ON v275685.serviceRule=v275685.serviceRule ) AS v275685
+INNER JOIN
+( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#CalendarRule>' ) AS v198874 ON v275685.serviceRule=v198874.serviceRule ) AS v198874
+INNER JOIN
+( SELECT s AS service, o AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#serviceRule>' ) AS v213338 ON v198874.serviceRule=v213338.serviceRule AND v332012.service=v213338.service ) AS v213338
+INNER JOIN
+( SELECT s AS service FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Service>' ) AS v139582 ON v213338.service=v139582.service ) AS v502598 
+INNER JOIN
+ ( ( SELECT s AS route, o AS longName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#longName>' ) UNION BY NAME ( SELECT s AS route, o AS shortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v869292 ON v973081.route=v869292.route ) )
+

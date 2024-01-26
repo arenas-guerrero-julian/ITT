@@ -1,0 +1,3 @@
+SELECT COUNT(*) AS "v1"
+FROM "routes" v1
+WHERE '00000000000000000001' = v1."agency_id"

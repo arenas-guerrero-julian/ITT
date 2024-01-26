@@ -1,0 +1,19 @@
+SELECT routeName AS routeName, routeType AS routeType, v196100.trip AS trip, startTime AS startTime, endTime AS endTime
+FROM  ( ( ( ( ( ( ( ( ( ( SELECT s AS route, o AS routeType FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#routeType>' ) AS v147264
+INNER JOIN
+( SELECT s AS route, o AS routeName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) AS v552461 ON v147264.route=v552461.route ) AS v552461
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v298611 ON v552461.route=v298611.route ) AS v298611
+INNER JOIN
+( SELECT s AS frequency, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v141478 ON v141478.frequency=v141478.frequency AND v141478.trip=v141478.trip ) AS v141478
+INNER JOIN
+( SELECT s AS frequency, o AS endTime FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#endTime>' ) AS v895374 ON v141478.frequency=v895374.frequency ) AS v895374
+INNER JOIN
+( SELECT s AS frequency, o AS startTime FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#startTime>' ) AS v892678 ON v895374.frequency=v892678.frequency ) AS v892678
+INNER JOIN
+( SELECT s AS frequency FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Frequency>' ) AS v67623 ON v892678.frequency=v67623.frequency ) AS v67623
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v566579 ON v147264.route=v566579.route AND v141478.trip=v566579.trip ) AS v566579
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v196100 ON v566579.trip=v196100.trip ) )
+

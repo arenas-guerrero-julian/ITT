@@ -1,0 +1,44 @@
+SELECT v13."feed_version1m17" AS "feed_version1m17",
+       v13."stop_id1m30" AS "stop_id1m30",
+       v13."v140" AS "v140"
+FROM (
+        (SELECT v1."stop_timezone" AS "feed_version1m17",
+                v1."stop_id" AS "stop_id1m30",
+                'http://vocab.gtfs.org/terms#timeZone' AS "v140"
+         FROM "stops" v1
+         WHERE ((v1."stop_timezone" ~ '000000000000000002')
+                AND v1."stop_timezone" IS NOT NULL))
+      UNION ALL
+        (SELECT v3."stop_desc" AS "feed_version1m17",
+                v3."stop_id" AS "stop_id1m30",
+                'http://purl.org/dc/terms/description' AS "v140"
+         FROM "stops" v3
+         WHERE ((v3."stop_desc" ~ '000000000000000002')
+                AND v3."stop_desc" IS NOT NULL))
+      UNION ALL
+        (SELECT v5."zone_id" AS "feed_version1m17",
+                v5."stop_id" AS "stop_id1m30",
+                'http://vocab.gtfs.org/terms#zone' AS "v140"
+         FROM "stops" v5
+         WHERE ((v5."zone_id" ~ '000000000000000002')
+                AND v5."zone_id" IS NOT NULL))
+      UNION ALL
+        (SELECT v7."stop_code" AS "feed_version1m17",
+                v7."stop_id" AS "stop_id1m30",
+                'http://vocab.gtfs.org/terms#code' AS "v140"
+         FROM "stops" v7
+         WHERE ((v7."stop_code" ~ '000000000000000002')
+                AND v7."stop_code" IS NOT NULL))
+      UNION ALL
+        (SELECT v9."stop_name" AS "feed_version1m17",
+                v9."stop_id" AS "stop_id1m30",
+                'http://xmlns.com/foaf/0.1/name' AS "v140"
+         FROM "stops" v9
+         WHERE ((v9."stop_name" ~ '000000000000000002')
+                AND v9."stop_name" IS NOT NULL))
+      UNION ALL
+        (SELECT v11."stop_id" AS "feed_version1m17",
+                v11."stop_id" AS "stop_id1m30",
+                'http://purl.org/dc/terms/identifier' AS "v140"
+         FROM "stops" v11
+         WHERE (v11."stop_id" ~ '000000000000000002'))) v13

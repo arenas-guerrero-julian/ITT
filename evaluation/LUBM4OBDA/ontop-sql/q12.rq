@@ -1,0 +1,10 @@
+SELECT DISTINCT ('http://www.department' || CAST(v2."worksfor" AS TEXT) || '.university' || '0' || '.edu/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v2."name", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D')) AS "v0",
+                ('http://www.department' || CAST(v2."worksfor" AS TEXT) || '.university' || '0' || '.edu') AS "v3"
+FROM "professor" v1,
+     "faculty" v2,
+     "department" v3
+WHERE (v2."name" IS NOT NULL
+       AND v1."nr" = v2."nr"
+       AND v2."worksfor" = v3."nr"
+       AND 0 = v3."suborganizationof")
+

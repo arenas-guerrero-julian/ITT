@@ -1,0 +1,5 @@
+SELECT count(v208252.route) AS nRoutes
+FROM  ( ( ( SELECT s AS route, o AS agency FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#agency>' ) AS v301411
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v208252 ON v301411.route=v208252.route )) WHERE v301411.agency='<http://transport.linkeddata.es/madrid/agency/00000000000000000001>'
+

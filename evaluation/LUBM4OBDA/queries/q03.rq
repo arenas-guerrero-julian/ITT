@@ -1,0 +1,7 @@
+PREFIX ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+
+SELECT ?x
+WHERE {
+  ?x a ub:Publication .
+  ?x ub:publicationAuthor <http://www.department0.university0.edu/assistantProfessor0> .
+}

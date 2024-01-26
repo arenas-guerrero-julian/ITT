@@ -1,0 +1,6 @@
+SELECT DISTINCT ('http://www.department' || CAST(v1."suborganizationof" AS TEXT) || '.university' || '0' || '.edu/researchGroup' || CAST(v1."nr" AS TEXT) || '.edu') AS "v0"
+FROM "researchgroup" v1,
+     "department" v2
+WHERE (v1."suborganizationof" = v2."nr"
+       AND 0 = v2."suborganizationof")
+

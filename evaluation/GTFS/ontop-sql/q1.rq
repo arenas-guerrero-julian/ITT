@@ -1,0 +1,7 @@
+SELECT v1."shape_id" AS "shape_id1m46",
+       v1."shape_pt_lat" AS "shape_pt_lat1m33",
+       v1."shape_pt_lon" AS "shape_pt_lon1m36",
+       v1."shape_pt_sequence" AS "shape_pt_sequence1m42"
+FROM "shapes" v1
+WHERE (v1."shape_pt_lat" IS NOT NULL
+       AND v1."shape_pt_lon" IS NOT NULL)

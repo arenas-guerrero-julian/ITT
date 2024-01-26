@@ -1,0 +1,13 @@
+SELECT v673113.stop AS stop, v408897.parStation AS parStation, v592590.name AS name, v669963.accName AS accName
+FROM  ( ( ( ( ( ( ( SELECT s AS parStation, o AS name FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/name>' ) AS v592590
+INNER JOIN
+( SELECT s AS parStation FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v951174 ON v592590.parStation=v951174.parStation ) AS v951174
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#locationType>' AND o='<http://transport.linkeddata.es/resource/LocationType/2>' ) AS v797454 ON v797454.stop=v797454.stop ) AS v797454
+INNER JOIN
+( SELECT s AS stop, o AS parStation FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#parentStation>' ) AS v408897 ON v592590.parStation=v408897.parStation AND v797454.stop=v408897.stop ) AS v408897
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v673113 ON v408897.stop=v673113.stop ) AS v523444 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS accName FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/name>' ) ) AS v669963 ON v673113.stop=v669963.stop ) )
+

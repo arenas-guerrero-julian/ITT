@@ -1,0 +1,31 @@
+SELECT DISTINCT routeShortName AS routeShortName, routeDescription AS routeDescription, tripShortName AS tripShortName, stopDescription AS stopDescription, stopLat AS stopLat, stopLong AS stopLong
+FROM  ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( SELECT s AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#wheelchairAccessible>' AND o='<http://transport.linkeddata.es/resource/WheelchairBoardingStatus/1>' ) AS v610635
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v689773 ON v610635.stop=v689773.stop ) AS v689773
+INNER JOIN
+( SELECT s AS stopTime, o AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#stop>' ) AS v242490 ON v689773.stop=v242490.stop ) AS v242490
+INNER JOIN
+( SELECT s AS stopTime, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v332531 ON v242490.stopTime=v332531.stopTime ) AS v332531
+INNER JOIN
+( SELECT s AS stopTime FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#StopTime>' ) AS v618102 ON v332531.stopTime=v618102.stopTime ) AS v618102
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v878840 ON v332531.trip=v878840.trip ) AS v878840
+INNER JOIN
+( SELECT s AS trip, o AS service FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#service>' ) AS v350448 ON v878840.trip=v350448.trip ) AS v350448
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v393905 ON v350448.trip=v393905.trip ) AS v393905
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v306054 ON v878840.route=v306054.route ) AS v267209 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v912343 ON v306054.route=v912343.route ) AS v4979 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v514717 ON v306054.route=v514717.route ) AS v142934 
+LEFT OUTER JOIN
+ ( ( SELECT s AS trip, o AS tripShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v737503 ON v393905.trip=v737503.trip ) AS v359205 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS stopDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v211404 ON v242490.stop=v211404.stop ) AS v72327 
+LEFT OUTER JOIN
+ ( ( ( SELECT s AS stop, o AS stopLong FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#long>' ) AS v749561
+INNER JOIN
+( SELECT s AS stop, o AS stopLat FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#lat>' ) AS v24210 ON v749561.stop=v24210.stop ) ) AS v24210 ON v242490.stop=v24210.stop )) WHERE v306054.route='<http://transport.linkeddata.es/madrid/metro/routes/0000000000000000000c>'
+

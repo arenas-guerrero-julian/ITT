@@ -1,0 +1,11 @@
+SELECT v30112.stop AS stop, v963440.stopLat AS stopLat, v176170.stopLong AS stopLong, v499932.stopDescription AS stopDescription, v432452.wheelchairAccesible AS wheelchairAccesible
+FROM  ( ( ( ( ( ( SELECT s AS stop, o AS stopLong FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#long>' ) AS v176170
+INNER JOIN
+( SELECT s AS stop, o AS stopLat FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#lat>' ) AS v963440 ON v176170.stop=v963440.stop ) AS v963440
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v30112 ON v963440.stop=v30112.stop ) AS v554828 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS stopDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v499932 ON v30112.stop=v499932.stop ) AS v218465 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS wheelchairAccesible FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#wheelchairAccessible>' ) ) AS v432452 ON v30112.stop=v432452.stop )) WHERE v963440.stopLat='"518"^^<http://www.w3.org/2001/XMLSchema#integer>'
+

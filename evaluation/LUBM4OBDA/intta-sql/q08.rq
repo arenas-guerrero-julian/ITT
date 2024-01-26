@@ -1,0 +1,11 @@
+SELECT v648328.x AS x, v507655.y AS y, z AS z
+FROM  ( ( ( ( ( ( SELECT s AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>' AND o='<http://www.university0.edu>' ) AS v697168
+INNER JOIN
+( SELECT s AS y FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department>' ) AS v503333 ON v697168.y=v503333.y ) AS v503333
+INNER JOIN
+( SELECT s AS x, o AS z FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>' ) AS v192083 ON v192083.z=v192083.z AND v192083.x=v192083.x ) AS v192083
+INNER JOIN
+( SELECT s AS x, o AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>' ) AS v507655 ON v697168.y=v507655.y AND v192083.x=v507655.x ) AS v507655
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Student>' ) AS v648328 ON v507655.x=v648328.x ) )
+

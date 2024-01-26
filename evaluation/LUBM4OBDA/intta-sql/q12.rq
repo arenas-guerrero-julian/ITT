@@ -1,0 +1,9 @@
+SELECT v180409.x AS x, v365314.y AS y
+FROM  ( ( ( ( ( SELECT s AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>' AND o='<http://www.university0.edu>' ) AS v577744
+INNER JOIN
+( SELECT s AS y FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department>' ) AS v340343 ON v577744.y=v340343.y ) AS v340343
+INNER JOIN
+( SELECT s AS x, o AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>' ) AS v365314 ON v340343.y=v365314.y ) AS v365314
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Chair>' ) AS v180409 ON v365314.x=v180409.x ) )
+

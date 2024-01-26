@@ -1,0 +1,13 @@
+SELECT v977116.stop AS stop, v860395.location AS location, v726252.stopDescription AS stopDescription, v377622.stopLat AS stopLat, v764961.stopLong AS stopLong, v979272.wheelchairAccessible AS wheelchairAccessible
+FROM  ( ( ( ( ( ( SELECT s AS stop, o AS location FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#locationType>' ) AS v860395
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v977116 ON v860395.stop=v977116.stop ) AS v249608 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS stopDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v726252 ON v977116.stop=v726252.stop ) AS v737580 
+LEFT OUTER JOIN
+ ( ( ( SELECT s AS stop, o AS stopLong FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#long>' ) AS v764961
+INNER JOIN
+( SELECT s AS stop, o AS stopLat FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#lat>' ) AS v377622 ON v764961.stop=v377622.stop ) ) AS v377622 ON v977116.stop=v377622.stop ) AS v687934 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS wheelchairAccessible FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#wheelchairAccessible>' ) ) AS v979272 ON v977116.stop=v979272.stop )) WHERE v860395.location='<http://transport.linkeddata.es/resource/LocationType/2>'
+

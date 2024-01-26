@@ -1,0 +1,19 @@
+SELECT v34909.route AS route, v478242.agency AS agency, v958989.agencyPage AS agencyPage, v464488.agencyName AS agencyName, v636585.routeShortName AS routeShortName, v843653.routeLongName AS routeLongName, v489359.routeDescription AS routeDescription, v905326.agencyPhone AS agencyPhone
+FROM  ( ( ( ( ( ( ( ( ( ( SELECT s AS agency, o AS agencyName FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/name>' ) AS v464488
+INNER JOIN
+( SELECT s AS agency, o AS agencyPage FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/page>' ) AS v958989 ON v464488.agency=v958989.agency ) AS v958989
+INNER JOIN
+( SELECT s AS agency FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Agency>' ) AS v786653 ON v958989.agency=v786653.agency ) AS v786653
+INNER JOIN
+( SELECT s AS route, o AS agency FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#agency>' ) AS v478242 ON v786653.agency=v478242.agency ) AS v478242
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v34909 ON v478242.route=v34909.route ) AS v575517 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v636585 ON v34909.route=v636585.route ) AS v613122 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeLongName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#longName>' ) ) AS v843653 ON v34909.route=v843653.route ) AS v417474 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v489359 ON v34909.route=v489359.route ) AS v279938 
+LEFT OUTER JOIN
+ ( ( SELECT s AS agency, o AS agencyPhone FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/phone>' ) ) AS v905326 ON v478242.agency=v905326.agency ) )
+

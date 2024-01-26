@@ -1,0 +1,9 @@
+SELECT count(DISTINCT v486704.trip) AS count
+FROM  ( ( ( ( ( SELECT s AS stopTime, o AS departureTime FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#departureTime>' ) AS v930048
+INNER JOIN
+( SELECT s AS stopTime, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v577790 ON v930048.stopTime=v577790.stopTime ) AS v577790
+INNER JOIN
+( SELECT s AS stopTime FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#StopTime>' ) AS v854966 ON v577790.stopTime=v854966.stopTime ) AS v854966
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v486704 ON v577790.trip=v486704.trip )) WHERE v930048.departureTime>='"000000000000000000c8"^^<http://www.w3.org/2001/XMLSchema#duration>'
+

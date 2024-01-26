@@ -1,0 +1,17 @@
+SELECT v849888.stopTime AS stopTime, v847353.trip AS trip, v570925.stop AS stop, v876107.sequence AS sequence, v466490.route AS route, v197652.stopName AS stopName
+FROM  ( ( ( ( ( ( ( ( ( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v466490
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v611773 ON v466490.trip=v611773.trip ) AS v611773
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v907839 ON v907839.stop=v907839.stop ) AS v907839
+INNER JOIN
+( SELECT s AS stopTime, o AS sequence FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#stopSequence>' ) AS v876107 ON v876107.sequence=v876107.sequence AND v876107.stopTime=v876107.stopTime ) AS v876107
+INNER JOIN
+( SELECT s AS stopTime, o AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#stop>' ) AS v570925 ON v876107.stopTime=v570925.stopTime AND v907839.stop=v570925.stop ) AS v570925
+INNER JOIN
+( SELECT s AS stopTime, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v847353 ON v466490.trip=v847353.trip AND v876107.stopTime=v847353.stopTime ) AS v847353
+INNER JOIN
+( SELECT s AS stopTime FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#StopTime>' ) AS v849888 ON v847353.stopTime=v849888.stopTime ) AS v211687 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS stopName FROM triple_table_df WHERE p='<http://xmlns.com/foaf/0.1/name>' ) ) AS v197652 ON v570925.stop=v197652.stop ) ) ORDER BY sequence
+

@@ -1,0 +1,44 @@
+SELECT DISTINCT v9."route_id2m67" AS "route_id2m67",
+                v9."route_short_name2m51" AS "route_short_name2m51",
+                v9."service_id1m68" AS "service_id1m68",
+                v9."shape_id2m66" AS "shape_id2m66",
+                v12."shape_pt_lat1m33" AS "shape_pt_lat1m33",
+                CASE
+                    WHEN v9."route_short_name2m51" IS NOT NULL THEN v9."trip_id1m57"
+                    ELSE NULL
+                END AS "trip_id1m51",
+                v9."trip_id1m57" AS "trip_id1m57",
+                ('http://transport.linkeddata.es/madrid/metro/shape_point/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v9."shape_id2m66", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D') || '-' || CAST(v9."shape_pt_sequence2m64" AS TEXT)) AS "v0"
+FROM (
+        (SELECT v1."route_id" AS "route_id2m67",
+                v1."trip_short_name" AS "route_short_name2m51",
+                v1."service_id" AS "service_id1m68",
+                v1."shape_id" AS "shape_id2m66",
+                v3."shape_pt_sequence" AS "shape_pt_sequence2m64",
+                v1."trip_id" AS "trip_id1m57"
+         FROM "trips" v1,
+              "calendar" v2,
+              "shapes" v3
+         WHERE (v1."route_id" IS NOT NULL
+                AND v1."service_id" = v2."service_id"
+                AND v1."shape_id" = v3."shape_id"))
+      UNION ALL
+        (SELECT v5."route_id" AS "route_id2m67",
+                v5."trip_short_name" AS "route_short_name2m51",
+                v5."service_id" AS "service_id1m68",
+                v5."shape_id" AS "shape_id2m66",
+                v7."shape_pt_sequence" AS "shape_pt_sequence2m64",
+                v5."trip_id" AS "trip_id1m57"
+         FROM "trips" v5,
+              "calendar_dates" v6,
+              "shapes" v7
+         WHERE (v5."route_id" IS NOT NULL
+                AND v5."service_id" = v6."service_id"
+                AND v5."shape_id" = v7."shape_id"))) v9,
+
+  (SELECT DISTINCT v10."shape_pt_lat" AS "shape_pt_lat1m33",
+                   ('http://transport.linkeddata.es/madrid/metro/shape_point/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v10."shape_id", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D') || '-' || CAST(v10."shape_pt_sequence" AS TEXT)) AS "v6"
+   FROM "shapes" v10
+   WHERE (v10."shape_pt_lat" IS NOT NULL
+          AND (v10."shape_pt_lat" = 17514))) v12
+WHERE ('http://transport.linkeddata.es/madrid/metro/shape_point/' || REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(v9."shape_id2m66", '%', '%25'), ' ', '%20'), '!', '%21'), '"', '%22'), '#', '%23'), '$', '%24'), '&', '%26'), '''', '%27'), '(', '%28'), ')', '%29'), '*', '%2A'), '+', '%2B'), ',', '%2C'), '/', '%2F'), ':', '%3A'), ';', '%3B'), '<', '%3C'), '=', '%3D'), '>', '%3E'), '?', '%3F'), '@', '%40'), '[', '%5B'), '\\', '%5C'), ']', '%5D'), '^', '%5E'), '`', '%60'), '{', '%7B'), '|', '%7C'), '}', '%7D') || '-' || CAST(v9."shape_pt_sequence2m64" AS TEXT)) = v12."v6"

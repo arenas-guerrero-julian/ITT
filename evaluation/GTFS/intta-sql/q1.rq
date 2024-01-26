@@ -1,0 +1,11 @@
+SELECT v148478.shape AS shape, v904682.shapePoint AS shapePoint, v897665.shape_pt_lat AS shape_pt_lat, v333434.shape_pt_lon AS shape_pt_lon, v378477.shape_pt_sequence AS shape_pt_sequence
+FROM  ( ( ( ( ( ( SELECT s AS shapePoint, o AS shape_pt_sequence FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#pointSequence>' ) AS v378477
+INNER JOIN
+( SELECT s AS shapePoint, o AS shape_pt_lon FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#long>' ) AS v333434 ON v378477.shapePoint=v333434.shapePoint ) AS v333434
+INNER JOIN
+( SELECT s AS shapePoint, o AS shape_pt_lat FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#lat>' ) AS v897665 ON v333434.shapePoint=v897665.shapePoint ) AS v897665
+INNER JOIN
+( SELECT s AS shape, o AS shapePoint FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shapePoint>' ) AS v904682 ON v897665.shapePoint=v904682.shapePoint ) AS v904682
+INNER JOIN
+( SELECT s AS shape FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Shape>' ) AS v148478 ON v904682.shape=v148478.shape ) )
+

@@ -1,0 +1,10 @@
+SELECT v1."stop_id" AS "stop_id1m30",
+       v1."parent_station" AS "stop_id2m63",
+       v2."stop_name" AS "stop_name2m39",
+       v1."stop_name" AS "stop_name2m8"
+FROM "stops" v1,
+     "stops" v2
+WHERE (v2."stop_name" IS NOT NULL
+       AND v1."parent_station" = v2."stop_id"
+       AND 2 = v1."location_type")
+

@@ -1,0 +1,17 @@
+SELECT v188012.trip AS trip, v502644.service AS service, v742448.route AS route, v10810.shape AS shape, v186216.shapePoint AS shapePoint, v606023.lat AS lat, v332229.tripShortName AS tripShortName
+FROM  ( ( ( ( ( ( ( ( ( SELECT s AS shapePoint, o AS lat FROM triple_table_df WHERE p='<http://www.w3.org/2003/01/geo/wgs84_pos#lat>' ) AS v606023
+INNER JOIN
+( SELECT s AS shape, o AS shapePoint FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shapePoint>' ) AS v186216 ON v606023.shapePoint=v186216.shapePoint ) AS v186216
+INNER JOIN
+( SELECT s AS shape FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Shape>' ) AS v24688 ON v186216.shape=v24688.shape ) AS v24688
+INNER JOIN
+( SELECT s AS trip, o AS shape FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shape>' ) AS v10810 ON v24688.shape=v10810.shape ) AS v10810
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v742448 ON v10810.trip=v742448.trip ) AS v742448
+INNER JOIN
+( SELECT s AS trip, o AS service FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#service>' ) AS v502644 ON v742448.trip=v502644.trip ) AS v502644
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v188012 ON v502644.trip=v188012.trip ) AS v227893 
+LEFT OUTER JOIN
+ ( ( SELECT s AS trip, o AS tripShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v332229 ON v188012.trip=v332229.trip )) WHERE v606023.lat='"17514"^^<http://www.w3.org/2001/XMLSchema#integer>'
+

@@ -1,0 +1,42 @@
+SELECT DISTINCT v8."route_id2m67" AS "route_id2m67",
+                v8."service_id0m11" AS "service_id0m11",
+                v8."trip_id0m68" AS "trip_id0m68",
+                v13."v0" AS "v0",
+                v13."v1" AS "v1",
+                v13."v3" AS "v3",
+                v13."v5" AS "v5"
+FROM (
+        (SELECT v1."route_id" AS "route_id2m67",
+                v1."service_id" AS "service_id0m11",
+                v1."trip_id" AS "trip_id0m68"
+         FROM "trips" v1,
+              "calendar" v2
+         WHERE (v1."service_id" = v2."service_id"
+                AND 1 = v2."sunday"))
+      UNION ALL
+        (SELECT v4."route_id" AS "route_id2m67",
+                v4."service_id" AS "service_id0m11",
+                v4."trip_id" AS "trip_id0m68"
+         FROM "trips" v4,
+              "calendar_dates" v5,
+              "calendar" v6
+         WHERE (v4."service_id" = v5."service_id"
+                AND v4."service_id" = v6."service_id"
+                AND 1 = v6."sunday") )) v8,
+     (
+        (SELECT v9."route_id" AS "route_id2m0",
+                0 AS "v0",
+                v9."route_long_name" AS "v1",
+                CAST(NULL AS TEXT) AS "v3",
+                CAST(NULL AS BIGINT) AS "v5"
+         FROM "routes" v9
+         WHERE v9."route_long_name" IS NOT NULL)
+      UNION ALL
+        (SELECT v11."route_id" AS "route_id2m0",
+                CAST(NULL AS BIGINT) AS "v0",
+                CAST(NULL AS TEXT) AS "v1",
+                v11."route_short_name" AS "v3",
+                0 AS "v5"
+         FROM "routes" v11
+         WHERE v11."route_short_name" IS NOT NULL)) v13
+WHERE v8."route_id2m67" = v13."route_id2m0"

@@ -1,0 +1,5 @@
+SELECT v973891.stop AS stop, v146844.p AS p, v146844.str AS str
+FROM  ( ( ( SELECT s AS stop, p AS p, o AS str FROM triple_table_df  ) AS v146844
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v973891 ON v146844.stop=v973891.stop )) WHERE str LIKE '%000000000000000002%' AND STARTS_WITH(str, '"')
+

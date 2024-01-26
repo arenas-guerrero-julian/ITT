@@ -1,0 +1,5 @@
+SELECT v730988.x AS x
+FROM  ( ( ( SELECT s AS x FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>' AND o='<http://www.university0.edu>' ) AS v866055
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#ResearchGroup>' ) AS v730988 ON v866055.x=v730988.x ) )
+

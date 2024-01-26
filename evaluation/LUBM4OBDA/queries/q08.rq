@@ -1,0 +1,10 @@
+PREFIX ub: <http://swat.cse.lehigh.edu/onto/univ-bench.owl#>
+
+SELECT ?x ?y ?z
+WHERE {
+  ?x a ub:Student .
+  ?x ub:memberOf ?y .
+  ?x ub:emailAddress ?z .
+  ?y a ub:Department .
+  ?y ub:subOrganizationOf <http://www.university0.edu> .
+}

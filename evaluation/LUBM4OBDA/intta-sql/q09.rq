@@ -1,0 +1,13 @@
+SELECT v11906.x AS x, v252734.y AS y, v513429.z AS z
+FROM  ( ( ( ( ( ( ( SELECT s AS z FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Course>' ) AS v924654
+INNER JOIN
+( SELECT s AS y, o AS z FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#teacherOf>' ) AS v419257 ON v924654.z=v419257.z ) AS v419257
+INNER JOIN
+( SELECT s AS y FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Faculty>' ) AS v490893 ON v419257.y=v490893.y ) AS v490893
+INNER JOIN
+( SELECT s AS x, o AS z FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#takesCourse>' ) AS v513429 ON v924654.z=v513429.z ) AS v513429
+INNER JOIN
+( SELECT s AS x, o AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#advisor>' ) AS v252734 ON v419257.y=v252734.y AND v513429.x=v252734.x ) AS v252734
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Student>' ) AS v11906 ON v252734.x=v11906.x ) )
+

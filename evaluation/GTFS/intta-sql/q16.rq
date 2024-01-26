@@ -1,0 +1,17 @@
+SELECT v146264.trip AS trip, v809984.service AS service, v591358.route AS route, v355591.serviceRule AS serviceRule, v571768.servDate AS servDate
+FROM  ( ( ( ( ( ( ( ( ( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#dateAddition>' AND o='"1"^^<http://www.w3.org/2001/XMLSchema#boolean>' ) AS v207721
+INNER JOIN
+( SELECT s AS serviceRule, o AS servDate FROM triple_table_df WHERE p='<http://purl.org/dc/terms/date>' ) AS v571768 ON v207721.serviceRule=v571768.serviceRule ) AS v571768
+INNER JOIN
+( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#CalendarDateRule>' ) AS v196193 ON v571768.serviceRule=v196193.serviceRule ) AS v196193
+INNER JOIN
+( SELECT s AS service, o AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#serviceRule>' ) AS v355591 ON v196193.serviceRule=v355591.serviceRule ) AS v355591
+INNER JOIN
+( SELECT s AS service FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Service>' ) AS v476779 ON v355591.service=v476779.service ) AS v476779
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v591358 ON v591358.trip=v591358.trip AND v591358.route=v591358.route ) AS v591358
+INNER JOIN
+( SELECT s AS trip, o AS service FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#service>' ) AS v809984 ON v591358.trip=v809984.trip AND v355591.service=v809984.service ) AS v809984
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v146264 ON v809984.trip=v146264.trip )) WHERE v571768.servDate>='"2017-01-01"^^<http://www.w3.org/2001/XMLSchema#date>' AND  v571768.servDate<='"2017-01-31"^^<http://www.w3.org/2001/XMLSchema#date>'
+

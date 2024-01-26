@@ -1,0 +1,13 @@
+SELECT v1."agency_id" AS "agency_id2m65",
+       v2."agency_phone" AS "agency_phone1m44",
+       v2."agency_url" AS "feed_publisher_url3m14",
+       v1."route_id" AS "route_id1m50",
+       v1."route_long_name" AS "route_long_name1m52",
+       v1."route_short_name" AS "route_short_name2m51",
+       v1."route_desc" AS "stop_desc2m34",
+       v2."agency_name" AS "stop_name2m39"
+FROM "routes" v1,
+     "agency" v2
+WHERE (v2."agency_url" IS NOT NULL
+       AND v2."agency_name" IS NOT NULL
+       AND v1."agency_id" = v2."agency_id")

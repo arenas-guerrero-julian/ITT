@@ -1,0 +1,13 @@
+SELECT v500965.x AS x, v972409.y AS y, v285260.z AS z
+FROM  ( ( ( ( ( ( ( SELECT s AS z, o AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#subOrganizationOf>' ) AS v268457
+INNER JOIN
+( SELECT s AS z FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Department>' ) AS v867077 ON v268457.z=v867077.z ) AS v867077
+INNER JOIN
+( SELECT s AS y FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#University>' ) AS v620522 ON v268457.y=v620522.y ) AS v620522
+INNER JOIN
+( SELECT s AS x, o AS z FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#memberOf>' ) AS v285260 ON v268457.z=v285260.z ) AS v285260
+INNER JOIN
+( SELECT s AS x, o AS y FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#undergraduateDegreeFrom>' ) AS v972409 ON v285260.x=v972409.x AND v268457.y=v972409.y ) AS v972409
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#GraduateStudent>' ) AS v500965 ON v972409.x=v500965.x ) )
+

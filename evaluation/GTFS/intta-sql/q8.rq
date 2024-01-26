@@ -1,0 +1,28 @@
+SELECT v618863.route AS route, v707445.trip AS trip, v733660.service AS service, v7802.stopTime AS stopTime, v130063.stop AS stop, v34661.serviceRule AS serviceRule, v633640.routeShortName AS routeShortName, v639205.routeDescription AS routeDescription, v525097.tripShortName AS tripShortName, v928614.stopDescription AS stopDescription
+FROM  ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( SELECT s AS service, o AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#serviceRule>' ) AS v34661
+INNER JOIN
+( SELECT s AS service FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Service>' ) AS v516700 ON v34661.service=v516700.service ) AS v516700
+INNER JOIN
+( SELECT s AS stop FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Stop>' ) AS v52627 ON v52627.stop=v52627.stop ) AS v52627
+INNER JOIN
+( SELECT s AS stopTime, o AS stop FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#stop>' ) AS v130063 ON v52627.stop=v130063.stop ) AS v130063
+INNER JOIN
+( SELECT s AS stopTime, o AS trip FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#trip>' ) AS v16396 ON v130063.stopTime=v16396.stopTime ) AS v16396
+INNER JOIN
+( SELECT s AS stopTime FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#StopTime>' ) AS v7802 ON v16396.stopTime=v7802.stopTime ) AS v7802
+INNER JOIN
+( SELECT s AS trip, o AS route FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#route>' ) AS v487901 ON v16396.trip=v487901.trip ) AS v487901
+INNER JOIN
+( SELECT s AS trip, o AS service FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#service>' ) AS v733660 ON v34661.service=v733660.service AND v16396.trip=v733660.trip ) AS v733660
+INNER JOIN
+( SELECT s AS trip FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Trip>' ) AS v707445 ON v733660.trip=v707445.trip ) AS v707445
+INNER JOIN
+( SELECT s AS route FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Route>' ) AS v618863 ON v487901.route=v618863.route ) AS v561894 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v633640 ON v618863.route=v633640.route ) AS v980564 
+LEFT OUTER JOIN
+ ( ( SELECT s AS route, o AS routeDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v639205 ON v618863.route=v639205.route ) AS v777356 
+LEFT OUTER JOIN
+ ( ( SELECT s AS trip, o AS tripShortName FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#shortName>' ) ) AS v525097 ON v707445.trip=v525097.trip ) AS v589712 
+LEFT OUTER JOIN
+ ( ( SELECT s AS stop, o AS stopDescription FROM triple_table_df WHERE p='<http://purl.org/dc/terms/description>' ) ) AS v928614 ON v130063.stop=v928614.stop ) )

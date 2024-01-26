@@ -1,0 +1,11 @@
+SELECT v587548.service AS service, v275483.serviceRule AS serviceRule, v430763.date AS date
+FROM  ( ( ( ( ( ( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#dateAddition>' AND o='"1"^^<http://www.w3.org/2001/XMLSchema#boolean>' ) AS v247751
+INNER JOIN
+( SELECT s AS serviceRule, o AS date FROM triple_table_df WHERE p='<http://purl.org/dc/terms/date>' ) AS v430763 ON v247751.serviceRule=v430763.serviceRule ) AS v430763
+INNER JOIN
+( SELECT s AS serviceRule FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#CalendarDateRule>' ) AS v313701 ON v430763.serviceRule=v313701.serviceRule ) AS v313701
+INNER JOIN
+( SELECT s AS service, o AS serviceRule FROM triple_table_df WHERE p='<http://vocab.gtfs.org/terms#serviceRule>' ) AS v275483 ON v313701.serviceRule=v275483.serviceRule ) AS v275483
+INNER JOIN
+( SELECT s AS service FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://vocab.gtfs.org/terms#Service>' ) AS v587548 ON v275483.service=v587548.service )) WHERE v430763.date>'"2016-06-01"^^<http://www.w3.org/2001/XMLSchema#date>'
+

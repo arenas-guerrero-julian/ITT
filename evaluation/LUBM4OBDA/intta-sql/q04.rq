@@ -1,0 +1,11 @@
+SELECT v486333.x AS x, y1 AS y1, y2 AS y2, y3 AS y3
+FROM  ( ( ( ( ( ( SELECT s AS x, o AS y3 FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#telephone>' ) AS v805200
+INNER JOIN
+( SELECT s AS x, o AS y2 FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#emailAddress>' ) AS v916443 ON v805200.x=v916443.x ) AS v916443
+INNER JOIN
+( SELECT s AS x, o AS y1 FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#name>' ) AS v245344 ON v916443.x=v245344.x ) AS v245344
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#worksFor>' AND o='<http://www.department0.university0.edu>' ) AS v67000 ON v245344.x=v67000.x ) AS v67000
+INNER JOIN
+( SELECT s AS x FROM triple_table_df WHERE p='<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>' AND o='<http://swat.cse.lehigh.edu/onto/univ-bench.owl#Professor>' ) AS v486333 ON v67000.x=v486333.x ) )
+
