@@ -62,7 +62,9 @@ if __name__ == "__main__":
         #print(sparql_to_sql(sparql_query))
         #print(len(duckdb.sql(sparql_to_sql(sparql_query)).df()))
         #duckdb.sql(sparql_to_sql(sparql_query)).show()
-        duckdb.sql(sparql_to_sql(sparql_query, sparql_parser)).pl().write_csv('itt_result.csv', separator='\t')
+        res_df = duckdb.sql(sparql_to_sql(sparql_query, sparql_parser)).pl()
+        res_df.write_csv('itt_result.csv', separator='\t')
+        print(res_df)
 
         print(int((time.time()-start_time)*1000))
     else:
