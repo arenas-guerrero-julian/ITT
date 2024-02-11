@@ -28,7 +28,15 @@ mappings: /path/to/mapping/mapping_file.rml.ttl
 db_url: mysql://username:password@host:port/database
 ```
 
-**ITT** uses [ConnectorX](https://github.com/sfu-db/connector-x) to access relational databases and the connection URLs must be formatted according to this engine. For Postgres the format is _postgresql://username:password@host:port/database_ and for MySQL the format is _mysql://username:password@host:port/database_. See the details [here](https://sfu-db.github.io/connector-x/databases.html). For Mongo the connection URL format is _mongodb://localhost:27017/database_.
+**ITT** uses [ConnectorX](https://github.com/sfu-db/connector-x) to access relational databases and the connection URLs must be formatted according to this engine. For Postgres the format is _postgresql://username:password@host:port/database_ and for MySQL the format is _mysql://username:password@host:port/database_. See the details [here](https://sfu-db.github.io/connector-x/databases.html).
+
+For MongoDB the connection URL format is _mongodb://localhost:27017/database_. Example config file for MongoDB:
+
+```ini
+[DataSource1]
+mappings: /path/to/mapping/mapping_file.rml.ttl
+mongo_url: mongodb://localhost:27017/database
+```
 
 ## License :unlock:
 
