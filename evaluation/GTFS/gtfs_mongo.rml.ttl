@@ -37,7 +37,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#arrivalTime> ];
@@ -55,7 +54,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#departureTime> ];
@@ -73,7 +71,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#stopSequence> ];
@@ -91,7 +88,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#headsign> ];
@@ -108,7 +104,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#pickupType> ];
@@ -125,7 +120,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#dropOffType> ];
@@ -142,7 +136,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#distanceTraveled> ];
@@ -159,12 +152,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#trip> ];
 		rml:objectMap [
-			rml:parentTriplesMap <trips>; 
+			rml:parentTriplesMap <trips>;
 			rml:joinCondition [ rml:child "trip_id"; rml:parent "trip_id"; ];
 		];
 	];
@@ -177,12 +169,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stoptimes/{trip_id}-{stop_id}-{arrival_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#StopTime>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#stop> ];
 		rml:objectMap [
-			rml:parentTriplesMap <stops>; 
+			rml:parentTriplesMap <stops>;
 			rml:joinCondition [ rml:child "stop_id"; rml:parent "stop_id"; ];
 		];
 	];
@@ -213,7 +204,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#headsign> ];
@@ -230,7 +220,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#shortName> ];
@@ -247,7 +236,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#direction> ];
@@ -265,7 +253,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#block> ];
@@ -282,7 +269,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#wheelchairAccessible> ];
@@ -300,12 +286,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#service> ];
 		rml:objectMap [
-			rml:parentTriplesMap <services1>; 
+			rml:parentTriplesMap <services1>;
 			rml:joinCondition [ rml:child "service_id"; rml:parent "service_id"; ];
 		];
 	];
@@ -318,12 +303,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#service> ];
 		rml:objectMap [
-			rml:parentTriplesMap <services2>; 
+			rml:parentTriplesMap <services2>;
 			rml:joinCondition [ rml:child "service_id"; rml:parent "service_id"; ];
 		];
 	];
@@ -336,12 +320,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#route> ];
 		rml:objectMap [
-			rml:parentTriplesMap <routes>; 
+			rml:parentTriplesMap <routes>;
 			rml:joinCondition [ rml:child "route_id"; rml:parent "route_id"; ];
 		];
 	];
@@ -354,12 +337,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/trips/{trip_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Trip>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#shape> ];
 		rml:objectMap[
-			rml:parentTriplesMap <shapes>; 
+			rml:parentTriplesMap <shapeShapePoints>;
 			rml:joinCondition [ rml:child "shape_id"; rml:parent "shape_id"; ];
 		];
 	];
@@ -390,7 +372,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#shortName> ];
@@ -407,7 +388,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#longName> ];
@@ -424,7 +404,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/description> ];
@@ -441,7 +420,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#routeType> ];
@@ -459,7 +437,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#routeUrl> ];
@@ -476,7 +453,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#color> ];
@@ -493,7 +469,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#textColor> ];
@@ -510,12 +485,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/routes/{route_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Route>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#agency> ];
 		rml:objectMap [
-			rml:parentTriplesMap <agency>; 
+			rml:parentTriplesMap <agency>;
 			rml:joinCondition [ rml:child "agency_id"; rml:parent "agency_id"; ];
 		];
 	];
@@ -546,7 +520,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/page> ];
@@ -563,7 +536,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/name> ];
@@ -580,7 +552,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#timeZone> ];
@@ -597,7 +568,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/language> ];
@@ -614,7 +584,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/phone> ];
@@ -631,7 +600,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/agency/{agency_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Agency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#fareUrl> ];
@@ -666,7 +634,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#code> ];
@@ -683,7 +650,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/name> ];
@@ -700,7 +666,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/description> ];
@@ -717,12 +682,12 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ];
 		rml:objectMap[
 			rml:reference "stop_lat";
+			rml:datatype xsd:integer;
 		];
 	];
 .
@@ -734,12 +699,12 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#long> ];
 		rml:objectMap[
 			rml:reference "stop_lon";
+			rml:datatype xsd:integer;
 		];
 	];
 .
@@ -751,7 +716,22 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
+	];
+	rml:predicateObjectMap [
+		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/identifier> ];
+		rml:objectMap[
+			rml:reference "stop_id";
+		];
+	];
+.
+
+<stopZone>
+	rml:logicalSource [
+		rml:collection """stops""";
+	];
+	rml:subjectMap [
+		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
+		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#zone> ];
@@ -768,7 +748,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/page> ];
@@ -786,12 +765,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#locationType> ];
 		rml:objectMap[
-			rml:reference "location_type";
+			rml:template "http://transport.linkeddata.es/resource/LocationType/{location_type}";
 			rml:termType <http://www.w3.org/ns/r2rml#IRI>;
 		];
 	];
@@ -804,14 +782,13 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#parentStation> ];
 		rml:objectMap[
 			#rml:reference "parent_station";
-			rml:parentTriplesMap <stops>; rml:joinCondition [ 
-			rml:child "parent_station"; rml:parent "stop_id"; ];
+			rml:parentTriplesMap <stops>;
+			rml:joinCondition [ rml:child "parent_station"; rml:parent "stop_id"; ];
 		];
 	];
 .
@@ -823,7 +800,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#timeZone> ];
@@ -840,7 +816,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/stops/{stop_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Stop>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#wheelchairAccessible> ];
@@ -876,12 +851,11 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/services/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Service>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#serviceRule> ];
 		rml:objectMap[
-			rml:parentTriplesMap <calendar_rules>; 
+			rml:parentTriplesMap <calendar_rules>;
 			rml:joinCondition [ rml:child "service_id"; rml:parent "service_id"; ];
 		];
 	];
@@ -911,41 +885,24 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/services/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Service>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#serviceRule> ];
 		rml:objectMap[
-			rml:parentTriplesMap <calendar_date_rules>; 
+			rml:parentTriplesMap <calendar_date_rulesDate>;
 			rml:joinCondition [ rml:child "service_id"; rml:parent "service_id"; ];
 		];
 	];
 .
 
 
-<calendar_date_rules>
-	rml:logicalSource [
-		rml:collection """calendar_dates""";
-	];
-	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}-{date}";
-		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarDateRule>;
-	];
-	rml:predicateObjectMap [
-		rml:predicateMap [ rml:constant <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ];
-		rml:objectMap[
-			rml:constant <http://vocab.gtfs.org/terms#CalendarDateRule>
-		];
-	];
-.
 
 <calendar_date_rulesDate>
 	rml:logicalSource [
 		rml:collection """calendar_dates""";
 	];
 	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}";
+		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}-{date}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
 		rml:class <http://vocab.gtfs.org/terms#CalendarDateRule>;
 	];
@@ -963,9 +920,8 @@
 		rml:collection """calendar_dates""";
 	];
 	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}";
+		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_date_rule/{service_id}-{date}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarDateRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#dateAddition> ];
@@ -1001,7 +957,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#monday> ];
@@ -1019,7 +974,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#tuesday> ];
@@ -1037,7 +991,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#wednesday> ];
@@ -1055,7 +1008,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#thursday> ];
@@ -1073,7 +1025,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#friday> ];
@@ -1091,7 +1042,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#saturday> ];
@@ -1109,7 +1059,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#sunday> ];
@@ -1127,7 +1076,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://schema.org/startDate> ];
@@ -1145,7 +1093,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/calendar_rules/{service_id}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#CalendarRule>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://schema.org/endDate> ];
@@ -1181,7 +1128,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/publisher> ];
@@ -1198,7 +1144,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://xmlns.com/foaf/0.1/page> ];
@@ -1216,7 +1161,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://purl.org/dc/terms/language> ];
@@ -1233,7 +1177,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://schema.org/startDate> ];
@@ -1251,7 +1194,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://schema.org/endDate> ];
@@ -1269,7 +1211,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/feed/{feed_publisher_name}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Feed>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://schema.org/version> ];
@@ -1279,40 +1220,6 @@
 	];
 .
 
-
-<shapes>
-	rml:logicalSource [
-		rml:collection """shapes""";
-	];
-	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/shapes/{shape_id}";
-		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Shape>;
-	];
-	rml:predicateObjectMap [
-		rml:predicateMap [ rml:constant <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ];
-		rml:objectMap[
-			rml:constant <http://vocab.gtfs.org/terms#Shape>
-		];
-	];
-.
-
-<shapePoints>
-	rml:logicalSource [
-		rml:collection """shapes""";
-	];
-	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
-		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#ShapePoint>;
-	];
-	rml:predicateObjectMap [
-		rml:predicateMap [ rml:constant <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ];
-		rml:objectMap[
-			rml:constant <http://vocab.gtfs.org/terms#ShapePoint>
-		];
-	];
-.
 
 <shapeShapePoints>
 	rml:logicalSource [
@@ -1326,44 +1233,8 @@
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#shapePoint> ];
 		rml:objectMap[
-			rml:parentTriplesMap <shapePoints>; 
-			rml:joinCondition [ rml:child "shape_id"; rml:parent "shape_id"; ];		
-		];
-	];
-.
-
-<shapesLat>
-	rml:logicalSource [
-		rml:collection """shapes""";
-	];
-	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
-		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Shape>;
-	];
-	rml:predicateObjectMap [
-		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ];
-		rml:objectMap[
-			rml:reference "shape_pt_lat";
-			rml:datatype xsd:double;
-		];
-	];
-.
-
-<shapesLong>
-	rml:logicalSource [
-		rml:collection """shapes""";
-	];
-	rml:subjectMap [
-		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
-		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Shape>;
-	];
-	rml:predicateObjectMap [
-		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#long> ];
-		rml:objectMap[
-			rml:reference "shape_pt_lon";
-			rml:datatype xsd:double;
+			rml:parentTriplesMap <shapesPointSequence>;
+			rml:joinCondition [ rml:child "shape_id"; rml:parent "shape_id"; ];
 		];
 	];
 .
@@ -1375,7 +1246,7 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Shape>;
+		rml:class <http://vocab.gtfs.org/terms#ShapePoint>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#pointSequence> ];
@@ -1392,12 +1263,45 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Shape>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#distanceTraveled> ];
 		rml:objectMap[
 			rml:reference "shape_dist_traveled";
+		];
+	];
+.
+
+<shapesLat>
+	rml:logicalSource [
+		rml:collection """shapes""";
+	];
+	rml:subjectMap [
+		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
+		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
+	];
+	rml:predicateObjectMap [
+		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ];
+		rml:objectMap[
+			rml:reference "shape_pt_lat";
+			rml:datatype xsd:integer;
+		];
+	];
+.
+
+<shapesLong>
+	rml:logicalSource [
+		rml:collection """shapes""";
+	];
+	rml:subjectMap [
+		rml:template "http://transport.linkeddata.es/madrid/metro/shape_point/{shape_id}-{shape_pt_sequence}";
+		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
+	];
+	rml:predicateObjectMap [
+		rml:predicateMap [ rml:constant <http://www.w3.org/2003/01/geo/wgs84_pos#long> ];
+		rml:objectMap[
+			rml:reference "shape_pt_lon";
+			rml:datatype xsd:integer;
 		];
 	];
 .
@@ -1427,7 +1331,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Frequency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#startTime> ];
@@ -1444,7 +1347,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Frequency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#endTime> ];
@@ -1461,7 +1363,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Frequency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#headwaySeconds> ];
@@ -1479,7 +1380,6 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Frequency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#exactTimes> ];
@@ -1497,13 +1397,12 @@
 	rml:subjectMap [
 		rml:template "http://transport.linkeddata.es/madrid/metro/frequency/{trip_id}-{start_time}";
 		rml:termType <http://www.w3.org/ns/r2rml#IRI>;
-		rml:class <http://vocab.gtfs.org/terms#Frequency>;
 	];
 	rml:predicateObjectMap [
 		rml:predicateMap [ rml:constant <http://vocab.gtfs.org/terms#trip> ];
 		rml:objectMap[
-			rml:parentTriplesMap <trips>; 
-			rml:joinCondition [ rml:child "trip_id"; rml:parent "trip_id"; ];		
+			rml:parentTriplesMap <trips>;
+			rml:joinCondition [ rml:child "trip_id"; rml:parent "trip_id"; ];
 		];
 	];
 .
