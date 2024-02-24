@@ -2,7 +2,7 @@
 
 **ITT** is a virtual knowledge graph system implementing the _Intermediate Triple Table_ architecture. It allows to access heterogeneous data as a knowledge graph using the **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://w3id.org/rml/core/spec)** mapping languages.
 
-## Installation
+## Installation ⚙️
 
 To install **ITT** execute the following:
 
@@ -10,7 +10,7 @@ To install **ITT** execute the following:
 pip install git+https://github.com/arenas-guerrero-julian/itt.git
 ```
 
-## Execution
+## Execution 🚀
 
 You can run **ITT** via command line:
 
