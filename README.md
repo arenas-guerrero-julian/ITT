@@ -1,5 +1,7 @@
 # Intermediate Triple Table
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11096736.svg)](https://doi.org/10.5281/zenodo.11096736)
+
 **ITT** is a virtual knowledge graph system implementing the _Intermediate Triple Table_ architecture. It allows to access heterogeneous data as a knowledge graph using the **[R2RML](https://www.w3.org/TR/r2rml/)** and **[RML](https://w3id.org/rml/core/spec)** mapping languages.
 
 ## Installation ⚙️
