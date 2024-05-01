@@ -40,7 +40,7 @@ dependencies = [
   'pandas==1.4.0',
   'lark==1.1.5',
   'rdflib==6.1.1',
-  'pyoxigraph>=0.3.10',
+  'pyoxigraph==0.3.22',
   'ruamel.yaml==0.17.26',
   'sql-metadata==2.6.0',
   'jsonpath-python==1.0.6',
