@@ -49,3 +49,16 @@ mongo_url: mongodb://localhost:27017/database
 - **[Julián Arenas-Guerrero](https://github.com/arenas-guerrero-julian/) - [julian.arenas.guerrero@upm.es](mailto:julian.arenas.guerrero@upm.es)**
 
 *[Universidad Politécnica de Madrid](https://www.upm.es/internacional)*.
+
+## Citing :speech_balloon:
+
+If you used ITT in your work, please cite the **[Knowledge-Based Systems]()** papers:
+
+```bib
+@article{arenas2025itt,
+  title = {{Intermediate triple table: A general architecture for virtual knowledge graphs}},
+  author = {Julián Arenas-Guerrero and Oscar Corcho and María S. Pérez},
+  journal = {Knowledge-Based Systems},
+  year = {2025},
+  publisher = {Elsevier},
+}
