@@ -52,7 +52,7 @@ mongo_url: mongodb://localhost:27017/database
 
 ## Citing :speech_balloon:
 
-If you used ITT in your work, please cite the **[Knowledge-Based Systems](https://doi.org/10.1016/j.knosys.2025.113179)** paper:
+If you used ITT in your work, please cite the **[Knowledge-Based Systems paper](https://doi.org/10.1016/j.knosys.2025.113179)**:
 
 ```bib
 @article{arenas2025itt,
