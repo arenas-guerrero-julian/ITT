@@ -59,9 +59,10 @@ If you used ITT in your work, please cite the **[Knowledge-Based Systems paper](
   title = {Intermediate triple table: A general architecture for virtual knowledge graphs},
   author = {Julián Arenas-Guerrero and Oscar Corcho and María S. Pérez},
   journal = {Knowledge-Based Systems},
-  publisher = {Elsevier},
+  volume = {314},
   pages = {113179},
   year = {2025},
+  publisher = {Elsevier},
   issn = {0950-7051},
   doi = {10.1016/j.knosys.2025.113179},
 }
