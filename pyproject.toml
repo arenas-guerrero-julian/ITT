@@ -65,10 +65,4 @@ mssql = ['pymssql>=2.2.7, <3.0.0']
 excel = ['openpyxl>=3.0.0, <4.0.0', 'odfpy>=1.4.1, <2.0.0']
 tabular = ['pyarrow>=11.0.0, <12.0.0']
 spss = ['pyreadstat>=1.2.0, <2.0.0']
-all = [
-  'itt[mysql]',
-  'itt[oracle]',
-  'itt[excel]',
-  'itt[tabular]',
-  'itt[spss]',
-]
+
