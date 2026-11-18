@@ -165,7 +165,7 @@ def _materialize_reference(results_df, reference, config, position, columns_alia
             results_df = results_df.with_columns(pl.col("reference_results").str.replace_all(' ', 'T'))
         # Make integers not end with .0
         elif datatype == XSD_INTEGER:
-            results_df = results_df.with_columns(pl.col("reference_results").str.replace_all('.0', ''))
+            results_df = results_df.with_columns(pl.col("reference_results").str.replace(r'\.0$', ''))
 
         try:
             for v in results_df.get_column('reference_results').sample(10, seed=0):
